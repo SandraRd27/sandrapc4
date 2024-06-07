@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Evaluación Usuario-Producto(solo hay 20 usuarios y 10 productos)";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="ML" asp-action="Predict" method="post">
+    <div class="form-group">
+        <label for="user">Id del usuario</label>
+        <input type="text" class="form-control" id="user" name="user" />
+    </div>
+    <div class="form-group">
+        <label for="prod">Id del producto</label>
+        <input type="text" class="form-control" id="prod" name="prod" />
+    </div>
+    <p></p>
+    <p></p>
+    <button type="submit" class="btn btn-primary">Resultado</button>
+</form>
+@if (ViewData["Message"] != null)
+{
+    <h2>Resultado de la Predicción</h2>    
+    <p>PUNTUACION:  @ViewData["Score"]</p>
+}
